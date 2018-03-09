@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Registro de Materiales </title>
+
+<link type='text/css' href='../css/demo.css' rel='stylesheet' media='screen' />
+
+<link type='text/css' href='../css/confirm.css' rel='stylesheet' media='screen' />
+
+</head>
+<body onload="miModal()">		
+<div id='container'>
+		<script type="text/javascript">
+			$(window).on('load',function miModal(){
+				$('#container').modal('show');
+			});
+		</script>
+	<!--<div id='logo'>
+		<h1><span>Confirmación</span></h1>
+		<span class='title'>Confirmación de registro de materiales</span>
+	</div>
+	<div id='content'>
+		<div id='confirm-dialog'>
+			<!<h3>Confirm Override</h3>-->
+			<!--<p>A modal dialog override of the JavaScript confirm function. Demonstrates the use of the <code>onShow</code> callback as well as how to display a modal dialog confirmation instead of the default JavaScript confirm dialog.</p>
+			<input type='button' name='confirm' class='confirm' value='Demo'/> or <a href='#' class='confirm'>Demo</a>
+		</div>-->
+		
+		<!-- modal content -->
+		<div id='confirm'>
+			<div class='header'><span>Registro de Materiales</span></div>
+			<div class='message'>El material se ha registrado exitosamente</div>
+			<div class='buttons'>
+				<!--<div class='no simplemodal-close'>No</div>--><div class='yes'>Ok</div>
+			</div>
+		</div>
+		<!-- preload the images -->
+		<div style='display:none'>
+			<img src='../img/confirm/header.gif' alt='' />
+			<img src='../img/confirm/button.gif' alt='' />
+		</div>
+	<!--</div>
+	<div id='footer'>
+		&copy; 2013 <a href='http://www.ericmmartin.com/'>Eric Martin</a><br/>
+		<a href='https://github.com/ericmmartin/simplemodal'>SimpleModal on GitHub</a><br/>
+		<a href='http://twitter.com/ericmmartin'>@ericmmartin</a> | <a href='http://twitter.com/simplemodal'>@simplemodal</a>
+	</div>-->
+</div>
+<!-- Load JavaScript files -->
+<script type='text/javascript' src='../js/jquery.js'></script>
+<script type='text/javascript' src='../js/jquery.simplemodal.js'></script>
+<script type='text/javascript' src='../js/confirm.js'></script>
+</body>
+</html>
