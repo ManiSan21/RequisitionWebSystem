@@ -6,7 +6,10 @@
         <link rel="stylesheet" type="text/css" href="../css/estilos.css">
     </head>
     <body>
-        <form name="form1" action="RegistroMateriales.php" method="post">            
+        <?php
+          include "../nav.html";
+         ?>
+        <form name="form1" action="RegistroMateriales.php" method="post">
             <input type="hidden" name="oculto" value="valorOculto" />
             <table width="200" id="one-column-emphasis">
                 <caption>
@@ -24,13 +27,13 @@
                     <td class="oce-first">
                         Id Proveedor:
                     </td>
-                    <td>                        
-                        <select name="proveedores">                                                        
-                            <option value="idProveedor">Seleccione Proveedor</option>                          
+                    <td>
+                        <select name="proveedores">
+                            <option value="idProveedor">Seleccione Proveedor</option>
                             <?php
                                 include '../RegistroMateriales.php';
-                                
-                            ?>                            
+
+                            ?>
                         </select>
                     </td>
                 </tr>
@@ -89,6 +92,9 @@
                     </td>
                 </tr>
             </table>
+            <<?php
+              include "../footer.html";
+             ?>
         </form>
     </body>
 </html>

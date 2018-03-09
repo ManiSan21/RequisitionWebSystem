@@ -6,6 +6,9 @@
         <link rel="stylesheet" type="text/css" href="../css/estilos.css">
     </head>
     <body>
+        <?php
+          include "../nav.html";
+         ?>
         <form name="form1" action="RegistroServicios.php" method="post">
             <input type="hidden" name="oculto" value="valorOculto" />
             <table width="200" id="one-column-emphasis">
@@ -46,5 +49,8 @@
                 </tr>
             </table>
         </form>
+        <?php
+          include "../footer.html";
+         ?>
     </body>
 </html>

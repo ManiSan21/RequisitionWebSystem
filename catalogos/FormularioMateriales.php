@@ -6,6 +6,9 @@
         <link rel="stylesheet" type="text/css" href="../css/estilos.css">
     </head>
     <body>
+        <?php
+          include "../nav.html";
+         ?>
         <form name="form1" action="RegistroMateriales.php" method="post">
             <input type="hidden" name="oculto" value="valorOculto" />
             <table width="200" id="one-column-emphasis">
@@ -27,7 +30,7 @@
                     <td>
                         <!--<input class="default" type="text" name="departamento" placeholder="Nombre del departamento" />-->
                         <select name="proveedores">
-                            <option value="Ninguno" name="ninguno">Ninguno</option>                                                    
+                            <option value="Ninguno" name="ninguno">Ninguno</option>
                             <?php
                                 $db = 'rws';
                                 $host = 'localhost:3308';
@@ -35,19 +38,19 @@
                                 $pass = '';
 
                                 $conexionSql = mysqli_connect($host, $user, $pass, $db);
-                            
+
                                 if(!$conexionSql)
                                 {
-                                    die("Error de conexión: ". mysqli_connect_error());      
+                                    die("Error de conexión: ". mysqli_connect_error());
                                 }
 
                                 $sql = "SELECT IdProveedor FROM proveedores;";
 
-                                $filtro = mysqli_query($conexionSql, $sql);                                
+                                $filtro = mysqli_query($conexionSql, $sql);
                                 while($row = mysqli_fetch_array($filtro))
                                 {
-                                    echo "<option value='".$row['IdProveedor']."'>".$row['IdProveedor']."</option>";      
-                                }                                
+                                    echo "<option value='".$row['IdProveedor']."'>".$row['IdProveedor']."</option>";
+                                }
                             ?>
                         </select>
                     </td>
@@ -108,5 +111,8 @@
                 </tr>
             </table>
         </form>
+        <?php
+          include "../footer.html";
+         ?>
     </body>
 </html>

@@ -8,15 +8,9 @@
 
     </head>
     <body>
-      <nav>
-        <ul>
-            <li><a title="registrarAulas" href="#">Regitrar aulas</a></li>
-            <li><a title="registrarDepartamentos" href="RegistrarDepartamentos.html">Registrar departamentos</a></li>
-            <li><a title="registrarUsuarios" href="registrarUsuarios.html">Registrar Usuarios</a></li>
-            <li><a title="Opcion 4" href="#">Opción 4</a></li>
-            <li><a title="Opcion 5" href="#">Opción 5</a></li>
-        </ul>
-      </nav>
+        <?php
+          include "../nav.html";
+         ?>
         <form name="form1" action="RegistrarAulas.php" method="post">
             <input type="hidden" name="oculto" value="valorOculto" />
             <table width="200" id="one-column-emphasis">
