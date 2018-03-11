@@ -3,6 +3,7 @@
     <head>
         <title>Registro de Proveedores</title>
         <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="../css/estiloMenu.css" />
         <link rel="stylesheet" type="text/css" href="../css/estilos.css">
     </head>
     <body>
