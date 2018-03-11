@@ -8,6 +8,7 @@
     $password = $_POST['password'];
     $contrasenaUsuario;
     $nombreUsuario;
+    $tipoUsuario;
 
     $conexionSql = mysqli_connect($host, $user, $pass, $db);
 
@@ -16,23 +17,35 @@
         die("Error de conexión: ". mysqli_connect_error());      
     }
 
-    $sql = "SELECT (NombreUsuario, Contrasena) FROM usuarios WHERE NombreUsuario=".$usuario." && Contrasena=".$password.";";
+    $sql = "SELECT NombreUsuario, Contrasena, TipoUsuario FROM usuarios WHERE NombreUsuario='".$usuario."' && Contrasena='".$password."';";
 
     $resultado = mysqli_query($conexionSql, $sql);
 
-    while($row = mysqli_fetch_assoc($resultado))
+    while($row = $resultado -> fetch_assoc())
     {
         $nombreUsuario = $row['NombreUsuario'];
         $contrasenaUsuario = $row['Contrasena'];
+        $tipoUsuario = $row['TipoUsuario'];
     }
 
-    if($resultado != null)
+    if($nombreUsuario == $usuario && $contrasenaUsuario == $password)
     {
-        header("menuPrincipal.html");//echo '<script language="javascript">alert("Usuario no existe. Regístrese como nuevo usuario")</script>';        
+        if($tipoUsuario == "ADMINISTRADOR")
+        {
+            header("Location: index.html");
+        }
+        elseif($tipoUsuario == "NORMAL")
+        {
+            header("Location: indexNormal.html");
+        }
+    }
+    elseif($nombreUsuario == null && $contrasenaUsuario == null)
+    {
+        echo '<script language="javascript">alert("Usuario no existe. Regístrese como nuevo usuario")</script>';        
     }
     elseif($nombreUsuario != $usuario && $contrasenaUsuario != $password)
     {
-        echo '<script language="javascript">alert("Nombre de usuario incorrecto o contraseña incorrectas")</script>';        
+        echo '<script language="javascript">alert("Nombre de usuario incorrecto o contraseña incorrecta")</script>';        
     }    
     /*else
     {

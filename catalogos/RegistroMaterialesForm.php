@@ -29,10 +29,29 @@
                     </td>
                     <td>
                         <select name="proveedores">
-                            <option value="idProveedor">Seleccione Proveedor</option>
-                            <?php
-                                include '../RegistroMateriales.php';
+                            <option value="Ninguno">Seleccione Proveedor</option>
+                            <?php                               
+                                $db = 'rws';
+                                $host = 'localhost:3308';
+                                $user = 'root';
+                                $pass = '';
 
+                                $conexionSql = mysqli_connect($host, $user, $pass, $db);
+                                
+                                if(!$conexionSql)
+                                {
+                                    die("Error de conexión: ". mysqli_connect_error());      
+                                }
+
+                                $sql = "SELECT IdProveedor FROM proveedores";
+                                $result = mysqli_query($conexionSql, $sql);
+
+                                while($row = $result->fetch_assoc())//= mysqli_fetch_row($result))
+                                {
+                                    echo "<option value='".$row['IdProveedor']."'>".$row['IdProveedor']."</option>";
+                                }
+
+                                mysqli_close($conexionSql);
                             ?>
                         </select>
                     </td>
@@ -88,13 +107,13 @@
                         <input type="reset" value="Limpiar" class="default" />
                     </td>
                      <td>
-                        <input type="submit" value="Enviar" class="default" />
+                        <input type="submit" name="Enviar" value="Enviar" class="default" />
                     </td>
                 </tr>
             </table>
-            <<?php
+            <?php
               include "../footer.html";
-             ?>
+            ?>
         </form>
     </body>
 </html>

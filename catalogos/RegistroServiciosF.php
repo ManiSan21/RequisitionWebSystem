@@ -8,7 +8,7 @@
     <body>
         <?php
           include "../nav.html";
-         ?>
+        ?>
         <form name="form1" action="RegistroServicios.php" method="post">
             <input type="hidden" name="oculto" value="valorOculto" />
             <table width="200" id="one-column-emphasis">
@@ -44,13 +44,13 @@
                         <input type="reset" value="limpiar" class="default" />
                     </td>
                      <td>
-                        <input type="submit" value="enviar" class="default" />
+                        <input type="submit" name="enviar" value="enviar" class="default" />
                     </td>
                 </tr>
             </table>
         </form>
         <?php
           include "../footer.html";
-         ?>
+        ?>
     </body>
 </html>
