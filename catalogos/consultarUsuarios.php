@@ -20,6 +20,9 @@
 
 	</head>
     <body>
+      <?php
+        include "../nav.html";
+       ?>
     	<table>
 		<thead>
 			<tr>
@@ -38,4 +41,8 @@
 		<?php } ?>
 		</tbody>
 	</table>
+  <?php 
+    include "../footer.html";
+   ?>
+</body>
 </html>
