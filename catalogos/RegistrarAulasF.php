@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Registro de usuarios</title>
+        <title>Registro de aulas</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../css/estiloMenu.css" />
         <link rel="stylesheet" type="text/css" href="../css/estilos.css">
@@ -10,6 +10,7 @@
     <body>
         <?php
           include "../nav.html";
+          if(!@$_POST['aula'])
          ?>
         <form name="form1" action="RegistrarAulas.php" method="post">
             <input type="hidden" name="oculto" value="valorOculto" />

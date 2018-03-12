@@ -4,6 +4,7 @@
         <title>Registro de Materiales</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../css/estilos.css">
+        <link rel="stylesheet" type="text/css" href="../css/estiloMenu.css" />
     </head>
     <body>
         <?php
@@ -30,17 +31,17 @@
                     <td>
                         <select name="proveedores">
                             <option value="Ninguno">Seleccione Proveedor</option>
-                            <?php                               
+                            <?php
                                 $db = 'rws';
                                 $host = 'localhost:3308';
                                 $user = 'root';
                                 $pass = '';
 
                                 $conexionSql = mysqli_connect($host, $user, $pass, $db);
-                                
+
                                 if(!$conexionSql)
                                 {
-                                    die("Error de conexión: ". mysqli_connect_error());      
+                                    die("Error de conexión: ". mysqli_connect_error());
                                 }
 
                                 $sql = "SELECT IdProveedor FROM proveedores";
