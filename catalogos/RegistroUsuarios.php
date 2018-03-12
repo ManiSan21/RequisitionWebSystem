@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>My example aplication</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="../css/estilos.css">
-    </head>
-</html>
-
 <?php
     $db = 'rws';
     $host = 'localhost:3308';
@@ -14,11 +5,11 @@
     $pass = '';
 
     $usuario = $_POST['usuario'];
-    $password = $_POST['password'];        
+    $password = $_POST['password'];            
 
     if(isset($_POST['Enviar']))
     {
-        $departamento = $_POST['idDepartamento']; 
+        $departamento = $_POST['departamentos']; 
         $tipoUsuario = $_POST['tipoUsuario'];
     }
 
