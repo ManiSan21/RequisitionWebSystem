@@ -23,8 +23,7 @@
                         Id Aula:
                     </td>
                     <td>
-                        <input class="default" type="text" name="id"/>
-
+                        <input class="default" type="text" name="id" disabled placeholder="El id se genera automáticamente"/>
                     </td>
                 </tr>
                 <tr>

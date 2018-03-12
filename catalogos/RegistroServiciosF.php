@@ -12,31 +12,31 @@
         ?>
         <form name="form1" action="RegistroServicios.php" method="post">
             <input type="hidden" name="oculto" value="valorOculto" />
-            <table width="200" id="one-column-emphasis">
+            <table width="100%" id="one-column-emphasis" style="text-align:center">
                 <caption>
                     Formulario de registro de Servicios
                 </caption>
                 <tr>
-                    <td class="oce-first">
+                    <td class="oce-first" style="text-align:center">
                         Id Servicio:
                     </td>
-                    <td>
+                    <td style="text-align:center">
                         <input class="default" type="text" name="id" placeholder="El Id se obtiene automáticamente" disabled/>
                     </td>
                 </tr>
                 <tr>
-                    <td class="oce-first">
+                    <td class="oce-first" style="text-align:center">
                         Descripción:
                     </td>
-                    <td>
+                    <td style="text-align:center">
                         <input class="default" type="text" name="descripcion" placeholder="Descripción del servicio" />
                     </td>
                 </tr>
                 <tr>
-                    <td class="oce-first">
+                    <td class="oce-first" style="text-align:center">
                         Fecha:
                     </td>
-                    <td>
+                    <td style="text-align:center">
                         <input class="default" id="fecha" type="date" name="fecha" placeholder="Descripción del servicio" />
                     </td>
                 </tr>

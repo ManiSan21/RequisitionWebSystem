@@ -21,13 +21,13 @@
                         Id Departamento:
                     </td>
                     <td>
-                        <input class="default" type="text" name="id"/>
+                        <input class="default" type="text" name="id" disabled placeholder="El id se provee automáticamente"/>
 
                     </td>
                 </tr>
                 <tr>
                     <td class="oce-first">
-                        Usuario:
+                        Departamento:
                     </td>
                     <td>
                         <input class="default" type="text" name="departamento" placeholder="Nombre del departamento" />

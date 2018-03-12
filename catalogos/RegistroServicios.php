@@ -18,10 +18,10 @@
 
     if(mysqli_query($conexionSql, $sql))
     {
-        $redirect = "RegistroServicios.html";
+        $redirect = "RegistroServiciosF.html";
         echo '<script language="javascript">alert("Servicio registrado exitosamente")</script>';      
         //echo '<script>window.location.href = '.$redirect.';</script>';
-        header("Location: RegistroServicios.html");        
+        //header("Location: RegistroServicios.html");        
        // exit();       
         //echo "<a href='FormularioMateriales.php'>Regresar al formulario de materiales</a>"; 
         //include "modal.html";        

@@ -4,11 +4,11 @@
   {
   }
 
-  $sql = mysqli_query($conexion, "INSERT INTO aulas (Descripcion) VALUES('".$aula."');");
+  $sql = mysqli_query($conexion, "INSERT INTO aula (Descripcion) VALUES('".$aula."');");
 
   if($sql)
   {
-    echo "Departamento registrado correctamente";
+    echo "Aula registrada correctamente";
   }
   else
   {
