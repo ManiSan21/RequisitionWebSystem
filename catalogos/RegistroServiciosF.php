@@ -8,7 +8,7 @@
     </head>
     <body>
         <?php
-          include "../nav.html";
+          include "../nav.php";
         ?>
         <form name="form1" action="RegistroServicios.php" method="post">
             <input type="hidden" name="oculto" value="valorOculto" />

@@ -1,4 +1,12 @@
 <?php
+    if(isset($_POST['Enviar']))
+    {
+        session_start();
+
+        $_SESSION['usuario'] = htmlentities($_POST['username']);
+        $_SESSION['contra'] = htmlentities($_POST['password']);
+    }
+
     $db = 'rws';
     $host = 'localhost:3308';
     $user = 'root';
@@ -32,7 +40,7 @@
     {
         if($tipoUsuario == "ADMINISTRADOR")
         {
-            header("Location: index.html");
+            header("Location: indexAdmin.php");
         }
         elseif($tipoUsuario == "NORMAL")
         {
