@@ -8,7 +8,7 @@
     }
 
     $db = 'rws';
-    $host = 'localhost:3308';
+    $host = 'localhost';
     $user = 'root';
     $pass = '';
 
@@ -22,7 +22,7 @@
 
     if(!$conexionSql)
     {
-        die("Error de conexión: ". mysqli_connect_error());      
+        die("Error de conexión: ". mysqli_connect_error());
     }
 
     $sql = "SELECT NombreUsuario, Contrasena, TipoUsuario FROM usuarios WHERE NombreUsuario='".$usuario."' && Contrasena='".$password."';";
@@ -49,15 +49,15 @@
     }
     elseif($nombreUsuario == null && $contrasenaUsuario == null)
     {
-        echo '<script language="javascript">alert("Usuario no existe. Regístrese como nuevo usuario")</script>';        
+        echo '<script language="javascript">alert("Usuario no existe. Regístrese como nuevo usuario")</script>';
     }
     elseif($nombreUsuario != $usuario && $contrasenaUsuario != $password)
     {
-        echo '<script language="javascript">alert("Nombre de usuario incorrecto o contraseña incorrecta")</script>';        
-    }    
+        echo '<script language="javascript">alert("Nombre de usuario incorrecto o contraseña incorrecta")</script>';
+    }
     /*else
     {
-        
+
     }*/
 
     mysqli_close($conexionSql);

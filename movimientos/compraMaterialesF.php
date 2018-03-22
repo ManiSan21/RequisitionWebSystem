@@ -4,15 +4,15 @@
         <title>Compra de materiales</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../css/estilos.css">
-        <link rel="stylesheet" type="text/css" href="../css/estiloMenu.css" />   
+        <link rel="stylesheet" type="text/css" href="../css/estiloMenu.css" />
         <script>
-            
-            function materialesCompra(){               
+
+            function materialesCompra(){
                 var idMaterial = document.getElementById('materiales').value;
-                var cantidad = document.getElementById('cantidad').value;            
-                var costo = document.getElementById('costo').value;      
-                var tabla = document.getElementById('tablaMateriales');   
-                var numFilas = document.getElementById('tablaMateriales').rows.length;   
+                var cantidad = document.getElementById('cantidad').value;
+                var costo = document.getElementById('costo').value;
+                var tabla = document.getElementById('tablaMateriales');
+                var numFilas = document.getElementById('tablaMateriales').rows.length;
 
                 var subtotal = cantidad * costo;
                 var iva = subtotal * 0.16;
@@ -24,20 +24,20 @@
 
                 var subtotalFin = parseFloat(subtotalValor.value);
                 var ivaFin = parseFloat(ivaValor.value);
-                var totalFin = parseFloat(totalValor.value);                
+                var totalFin = parseFloat(totalValor.value);
 
                 subtotalFin = parseFloat(subtotalFin + subtotal);
                 ivaFin = parseInt(ivaFin + iva);
-                totalFin = parseInt(totalFin + total);    
+                totalFin = parseInt(totalFin + total);
 
                 subtotalValor.value = subtotalFin;
                 ivaValor.value = ivaFin;
-                totalValor.value = totalFin;   
+                totalValor.value = totalFin;
 
                 var columnas = "";
 
                 numFilas = numFilas + 1;
-                
+
                 var fila = tabla.insertRow();
                 var columna1 = fila.insertCell(0);
                 var columna2 = fila.insertCell(1);
@@ -45,9 +45,15 @@
 
                 columna1.innerHTML = idMaterial;
                 columna2.innerHTML = cantidad;
-                columna3.innerHTML = costo;                
+                columna3.innerHTML = costo;
+
+
+
+                document.getElementById('total').text = totalValor.value;
+                document.getElementById('iva').text= ivaValor.value;
+                subtotal.getElementById('subtotal').text = subtotalValor.value;
             }
-        </script>     
+        </script>
     </head>
     <body>
         <?php
@@ -105,7 +111,7 @@
                             ?>
                         </select>
                     </td>
-                </tr>   
+                </tr>
                 <tr>
                     <td class="oce-first" style="text-align:center">
                         Cantidad:
@@ -113,14 +119,14 @@
                     <td style="text-align:center">
                         <input class="default" type="text" id="cantidad" name="cantidad" placeholder="Cantidad del material" />
                     </td>
-                </tr>             
+                </tr>
                 <tr>
                     <td class="oce-first" style="text-align:center">
                         Costo:
                     </td>
                     <td style="text-align:center">
                         <input class="default" type="text" id="costo" name="costo" placeholder="Costo del material" />
-                        <button name="aniadir" onclick="materialesCompra()">Añadir material</button>                        
+                        <button name="aniadir" onclick="materialesCompra()">Añadir material</button>
                     </td>
                 </tr>
                 <tr style="text-align:center">
@@ -130,11 +136,11 @@
                     <td>
                         <!--<p id="tabla"></p>-->
                         <table border="1" id="tablaMateriales" name="tablaMateriales">
-                            <tr>                                
+                            <tr>
                                 <th>Id Material</th>
                                 <th>Cantidad</th>
                                 <th>Costo</th>
-                            </tr>    
+                            </tr>
                         </table>
                     </td>
                 </tr>
@@ -143,7 +149,7 @@
                     Subtotal:
                 </td>
                 <td style="text-align:center">
-                    <input class="default" type="text" id="subtotal" name="subtotal" disabled />
+                    <input class="default" type="text" id="subtotal" name="subtotal" value="0" disabled />
                 </td>
             </tr>
             <tr>
@@ -151,7 +157,7 @@
                     IVA:
                 </td>
                 <td style="text-align:center">
-                    <input class="default" type="text" id="iva" name="iva" disabled/>
+                    <input class="default" type="text" id="iva" name="iva" value="0" disabled/>
                 </td>
             </tr>
             <tr>
@@ -159,7 +165,7 @@
                     Total:
                 </td>
                 <td style="text-align:center">
-                    <input class="default" type="text" id="total" name="total" disabled/>
+                    <input class="default" type="text" id="total" name="total" value="0" disabled/>
                 </td>
             </tr>
                 <tr style="text-align: center;">
@@ -170,7 +176,7 @@
                         <input type="submit" name="enviar" value="enviar" class="default" />
                     </td>
                 </tr>
-            </table>            
+            </table>
         </form>
         <?php
           include "../footer.html";
