@@ -5,55 +5,6 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../css/estilos.css">
         <link rel="stylesheet" type="text/css" href="../css/estiloMenu.css" />
-        <script>
-
-            function materialesCompra(){
-                var idMaterial = document.getElementById('materiales').value;
-                var cantidad = document.getElementById('cantidad').value;
-                var costo = document.getElementById('costo').value;
-                var tabla = document.getElementById('tablaMateriales');
-                var numFilas = document.getElementById('tablaMateriales').rows.length;
-
-                var subtotal = cantidad * costo;
-                var iva = subtotal * 0.16;
-                var total = subtotal + iva;
-
-                var subtotalValor = document.getElementById('subtotal');
-                var ivaValor = document.getElementById('iva');
-                var totalValor = document.getElementById('total');
-
-                var subtotalFin = parseFloat(subtotalValor.value);
-                var ivaFin = parseFloat(ivaValor.value);
-                var totalFin = parseFloat(totalValor.value);
-
-                subtotalFin = parseFloat(subtotalFin + subtotal);
-                ivaFin = parseInt(ivaFin + iva);
-                totalFin = parseInt(totalFin + total);
-
-                subtotalValor.value = subtotalFin;
-                ivaValor.value = ivaFin;
-                totalValor.value = totalFin;
-
-                var columnas = "";
-
-                numFilas = numFilas + 1;
-
-                var fila = tabla.insertRow();
-                var columna1 = fila.insertCell(0);
-                var columna2 = fila.insertCell(1);
-                var columna3 = fila.insertCell(2);
-
-                columna1.innerHTML = idMaterial;
-                columna2.innerHTML = cantidad;
-                columna3.innerHTML = costo;
-
-
-
-                document.getElementById('total').text = totalValor.value;
-                document.getElementById('iva').text= ivaValor.value;
-                subtotal.getElementById('subtotal').text = subtotalValor.value;
-            }
-        </script>
     </head>
     <body>
         <?php
@@ -126,7 +77,7 @@
                     </td>
                     <td style="text-align:center">
                         <input class="default" type="text" id="costo" name="costo" placeholder="Costo del material" />
-                        <button name="aniadir" onclick="materialesCompra()" onsubmit="false">Añadir material</button>
+                        <button type="button" name="aniadir" onclick="materialesCompra()" >Añadir material</button>
                     </td>
                 </tr>
                 <tr style="text-align:center">
@@ -149,7 +100,7 @@
                     Subtotal:
                 </td>
                 <td style="text-align:center">
-                    <input class="default" type="text" id="subtotal" name="subtotal" value="0" disabled />
+                    <input class="default" type="text" id="subtotal" name="subtotal" value="0" />
                 </td>
             </tr>
             <tr>
@@ -157,7 +108,7 @@
                     IVA:
                 </td>
                 <td style="text-align:center">
-                    <input class="default" type="text" id="iva" name="iva" value="0" disabled/>
+                    <input class="default" type="text" id="iva" name="iva" value="0"/>
                 </td>
             </tr>
             <tr>
@@ -165,7 +116,7 @@
                     Total:
                 </td>
                 <td style="text-align:center">
-                    <input class="default" type="text" id="total" name="total" value="0" disabled/>
+                    <input class="default" type="text" id="total" name="total" value="0"/>
                 </td>
             </tr>
                 <tr style="text-align: center;">
@@ -182,4 +133,59 @@
           include "../footer.html";
         ?>
     </body>
+    <script>
+
+        function materialesCompra()
+        {
+
+            var idMaterial = document.getElementById('materiales').value;
+            var cantidad = document.getElementById('cantidad').value;
+            var costo = document.getElementById('costo').value;
+            var tabla = document.getElementById('tablaMateriales');
+            var numFilas = document.getElementById('tablaMateriales').rows.length;
+
+            var subtotal = cantidad * costo;
+            var iva = subtotal * 0.16;
+            var total = subtotal + iva;
+
+            var subtotalValor = document.getElementById('subtotal');
+            var ivaValor = document.getElementById('iva');
+            var totalValor = document.getElementById('total');
+
+            var subtotalFin = parseFloat(subtotalValor.value);
+            var ivaFin = parseFloat(ivaValor.value);
+            var totalFin = parseFloat(totalValor.value);
+
+            subtotalFin = parseFloat(subtotalFin + subtotal);
+            ivaFin = parseInt(ivaFin + iva);
+            totalFin = parseInt(totalFin + total);
+
+            subtotalValor.value = subtotalFin;
+            ivaValor.value = ivaFin;
+            totalValor.value = totalFin;
+
+            var columnas = "";
+
+            numFilas = numFilas + 1;
+
+            var fila = tabla.insertRow();
+            var columna1 = fila.insertCell(0);
+            var columna2 = fila.insertCell(1);
+            var columna3 = fila.insertCell(2);
+
+            columna1.innerHTML = idMaterial;
+            columna2.innerHTML = cantidad;
+            columna3.innerHTML = costo;
+
+
+
+            document.getElementById('total').text = totalValor.value;
+            document.getElementById('iva').text= ivaValor.value;
+            subtotal.getElementById('subtotal').text = subtotalValor.value;
+
+
+        }
+
+    </script>
+
 </html>
