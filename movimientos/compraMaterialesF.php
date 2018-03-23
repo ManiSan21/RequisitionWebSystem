@@ -59,7 +59,7 @@
         <?php
             include "../nav.php";
         ?>
-        <form name="form1" action="aniadirMateriales.php" method="post" onsubmit="return false">
+        <form name="form1" action="aniadirMateriales.php" method="post">
             <input type="hidden" name="oculto" value="valorOculto" />
             <table width="100%" id="one-column-emphasis" style="text-align:center">
                 <caption>
@@ -126,7 +126,7 @@
                     </td>
                     <td style="text-align:center">
                         <input class="default" type="text" id="costo" name="costo" placeholder="Costo del material" />
-                        <button name="aniadir" onclick="materialesCompra()">Añadir material</button>
+                        <button name="aniadir" onclick="materialesCompra()" onsubmit="false">Añadir material</button>
                     </td>
                 </tr>
                 <tr style="text-align:center">
