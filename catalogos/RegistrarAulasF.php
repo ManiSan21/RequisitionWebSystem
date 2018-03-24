@@ -9,7 +9,7 @@
     </head>
     <body>
         <?php
-          include "../nav.html";
+          include "../nav.php";
           if(!@$_POST['aula'])
          ?>
         <form name="form1" action="RegistrarAulas.php" method="post">

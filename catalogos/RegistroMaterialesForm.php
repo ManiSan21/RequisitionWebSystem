@@ -8,7 +8,7 @@
     </head>
     <body>
         <?php
-          include "../nav.html";
+          include "../nav.php";
          ?>
         <form name="form1" action="RegistroMateriales.php" method="post">
             <input type="hidden" name="oculto" value="valorOculto" />
@@ -33,7 +33,7 @@
                             <option value="Ninguno">Seleccione Proveedor</option>
                             <?php
                                 $db = 'rws';
-                                $host = 'localhost:3308';
+                                $host = 'localhost';
                                 $user = 'root';
                                 $pass = '';
 
@@ -47,7 +47,7 @@
                                 $sql = "SELECT IdProveedor FROM proveedores";
                                 $result = mysqli_query($conexionSql, $sql);
 
-                                while($row = $result->fetch_assoc())//= mysqli_fetch_row($result))
+                                while($row = $result->fetch_assoc())
                                 {
                                     echo "<option value='".$row['IdProveedor']."'>".$row['IdProveedor']."</option>";
                                 }

@@ -39,7 +39,7 @@
                 $sql = "SELECT * FROM materiales";
                 $result = mysqli_query($conexionSql, $sql);
 
-                while($row = $result->fetch_assoc())//= mysqli_fetch_row($result))
+                while($row = $result->fetch_assoc())
                 {
                     echo "<tr>";
                     echo "<td>".$row['IdMaterial']."</td>";

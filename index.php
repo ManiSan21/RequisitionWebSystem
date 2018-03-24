@@ -1,6 +1,14 @@
 <?php
+    if(isset($_POST['Enviar']))
+    {
+        session_start();
+
+        $_SESSION['usuario'] = htmlentities($_POST['username']);
+        $_SESSION['contra'] = htmlentities($_POST['password']);
+    }
+
     $db = 'rws';
-    $host = 'localhost:3308';
+    $host = 'localhost';
     $user = 'root';
     $pass = '';
 
@@ -14,7 +22,7 @@
 
     if(!$conexionSql)
     {
-        die("Error de conexión: ". mysqli_connect_error());      
+        die("Error de conexión: ". mysqli_connect_error());
     }
 
     $sql = "SELECT NombreUsuario, Contrasena, TipoUsuario FROM usuarios WHERE NombreUsuario='".$usuario."' && Contrasena='".$password."';";
@@ -32,7 +40,7 @@
     {
         if($tipoUsuario == "ADMINISTRADOR")
         {
-            header("Location: index.html");
+            header("Location: indexAdmin.php");
         }
         elseif($tipoUsuario == "NORMAL")
         {
@@ -41,15 +49,15 @@
     }
     elseif($nombreUsuario == null && $contrasenaUsuario == null)
     {
-        echo '<script language="javascript">alert("Usuario no existe. Regístrese como nuevo usuario")</script>';        
+        echo '<script language="javascript">alert("Usuario no existe. Regístrese como nuevo usuario")</script>';
     }
     elseif($nombreUsuario != $usuario && $contrasenaUsuario != $password)
     {
-        echo '<script language="javascript">alert("Nombre de usuario incorrecto o contraseña incorrecta")</script>';        
-    }    
+        echo '<script language="javascript">alert("Nombre de usuario incorrecto o contraseña incorrecta")</script>';
+    }
     /*else
     {
-        
+
     }*/
 
     mysqli_close($conexionSql);

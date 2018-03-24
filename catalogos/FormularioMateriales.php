@@ -36,7 +36,6 @@
                                 $host = 'localhost:3308';
                                 $user = 'root';
                                 $pass = '';
-
                                 $conexionSql = mysqli_connect($host, $user, $pass, $db);
 
                                 if(!$conexionSql)

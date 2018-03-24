@@ -1,6 +1,6 @@
 <?php
     $db = 'rws';
-    $host = 'localhost:3308';
+    $host = 'localhost';
     $user = 'root';
     $pass = '';
 
@@ -13,21 +13,21 @@
 
     if(isset($_POST['Enviar']))
     {
-        $idProveedor = $_POST['proveedores'];        
+        $idProveedor = $_POST['proveedores'];
     }
 
     $conexionSql = mysqli_connect($host, $user, $pass, $db);
-    
+
     if(!$conexionSql)
     {
-        die("Error de conexión: ". mysqli_connect_error());      
+        die("Error de conexión: ". mysqli_connect_error());
     }
 
     $sql = "INSERT INTO materiales (IdProveedor, Nombre, Maximo, Minimo, Existencias, Precio) VALUES('$idProveedor', '$nombre', '$maximo', '$minimo', '$existencias', '$precio')";
 
     if(mysqli_query($conexionSql, $sql))
     {
-        echo '<script language="javascript">alert("Material registrado exitosamente")</script>';             
+        echo '<script language="javascript">alert("Material registrado exitosamente")</script>';
         /*echo "<a href='FormularioMateriales.php'>Regresar al formulario de materiales</a>";
         include "modal.html"; */
     }
