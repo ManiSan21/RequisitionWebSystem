@@ -5,12 +5,21 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../css/estilos.css">
         <link rel="stylesheet" type="text/css" href="../css/estiloMenu.css" />
+        <link rel="stylesheet" href="css/bootstrap.min.css">
     </head>
     <body>
         <?php
             include "../nav.php";
         ?>
-        <form name="form1" action="aniadirMateriales.php" method="post">
+        
+        <form class="form-horizontal" action="aniadirMateriales.php" method="post">
+            <div class="row">
+                <label class="text-right" for="">IdCompra:</label>
+                <input class="col-md-2" type="text" name="id" id="id">
+            </div>
+        </form>
+
+        <!--<form name="form1" action="aniadirMateriales.php" method="post" class="form-group">
             <input type="hidden" name="oculto" value="valorOculto" />
             <table width="100%" id="one-column-emphasis" style="text-align:center">
                 <caption>
@@ -48,7 +57,7 @@
                         <select name="materiales" id="materiales">
                             <option value="ninguno">Seleccione un material</option>
                             <?php
-                                include "../conexion.php";
+                                /*include "../conexion.php";
 
                                 $sql = "SELECT IdMaterial FROM materiales";
                                 $result = mysqli_query($conexion, $sql);
@@ -58,7 +67,7 @@
                                     echo "<option value'".$row['IdMaterial']."'>".$row['IdMaterial']."</option>";
                                 }
 
-                                mysqli_close($conexion);
+                                mysqli_close($conexion);*/
                             ?>
                         </select>
                     </td>
@@ -85,7 +94,7 @@
                         Materiales de la compra:
                     </td>
                     <td>
-                        <!--<p id="tabla"></p>-->
+                        
                         <table border="1" id="tablaMateriales" name="tablaMateriales">
                             <tr>
                                 <th>Id Material</th>
@@ -128,7 +137,7 @@
                     </td>
                 </tr>
             </table>
-        </form>
+        </form>-->
         <?php
           include "../footer.html";
         ?>
@@ -187,5 +196,7 @@
         }
 
     </script>
-
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
 </html>
