@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="../css/estiloMenu.css" />
         <link rel="stylesheet" href="../css/bootstrap.min.css">
     </head>
-    <body>
+    <body style="background-color: #DEF5F5;">
         <?php
             include "../nav.php";
         ?>
@@ -87,9 +87,11 @@
                     <div class="container">
                         <table class="table table-bordered table-hover table-condensed" id="tablaMateriales" name="tablaMateriales">
                             <tr class="table-primary">
+                                <th class="text-center">IdMaterial</th>
                                 <th class="text-center">Material:</th>
                                 <th class="text-center">Cantidad:</th>
                                 <th class="text-center">Precio:</th>
+                                <th class="text-center">Importe:</th>
                             </tr>
                         </table>
                     </div>

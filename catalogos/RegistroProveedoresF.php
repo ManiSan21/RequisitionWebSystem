@@ -6,13 +6,48 @@
         <link rel="stylesheet" type="text/css" href="../css/estiloMenu.css" />
         <link rel="stylesheet" type="text/css" href="../css/estilos.css">
         <link rel="stylesheet" type="text/css" href="../css/estiloMenu.css" />
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
     </head>
-    <body>
+    <body style="background-color: #DEF5F5;">
         <?php
           include "../nav.php";
-         ?>
-        <form name="form1" action="RegistroProveedores.php" method="post">
-            <input type="hidden" name="oculto" value="valorOculto" />
+        ?>
+        <div class="container">
+            <form name="form1" action="RegistroProveedores.php" method="post">
+            <caption><strong><h1 class="text-center text-primary">Formulario de registro de departamentos</h1></strong></caption>                
+                <div class="form-group text-right">
+                    <label for="" class="col-md-2 text-right">IdProveedor:</label>
+                    <input class="col-md-3" type="text" name="id" readonly placeholder="El id se genera automáticamente."/>                    
+                </div>
+                <div class="form-group text-right">
+                    <label for="" class="col-md-2 text-right">Nombre:</label>
+                    <input class="col-md-5" type="text" name="nombre" placeholder="Nombre del proveedor" />                     
+                </div>
+                <hr>
+                <div class="form-group row">
+                    <label for="">Domicilio:</label>                      
+                    <input class="form-control col-md-5" type="text" name="domicilio" placeholder="Domicilio del proveedor"/>
+                    <label for="">Colonia:</label>
+                    <input class="form-control col-md-4" type="text" name="colonia" placeholder="Colonia del proveedor"/>                    
+                </div>
+                <div class="form-group">
+                    <label for="">Estado:</label>
+                    <input class="form-control col-md-4" type="text" name="estado" placeholder="Estado del proveedor"/>
+                    <label for="">Código postal:</label>
+                    <input class="form-control col-md-2" type="text" name="cp" placeholder="CP del proveedor"/>                    
+                </div>
+                <div class="form-group row">
+                    <label for="">Teléfono:</label>
+                    <input class="form-control col-md-3" type="text" name="telefono" placeholder="Teléfono del proveedor"/>                    
+                    <label for="">E-mail:</label>
+                    <input class="form-control col-md-4" type="text" name="email" placeholder="E-mail del proveedor"/>
+                </div>
+                <hr>
+                <div class="form-group row text-center">
+                    <input type="reset" value="Limpiar" class="btn btn-danger" />
+                    <input type="submit" value="Enviar" class="btn btn-primary" />
+                </div>
+            <!--<input type="hidden" name="oculto" value="valorOculto" />
             <table width="200" id="one-column-emphasis">
                 <caption>
                     Formulario de registro de Proveedores
@@ -30,10 +65,7 @@
                         Nombre:
                     </td>
                     <td>
-                        <input class="default" type="text" name="nombre" placeholder="Nombre del proveedor" />
-                        <!--<select>
-                            <option value="Ninguno" name="idProveedor">Ninguno</option>
-                        </select>-->
+                        <input class="default" type="text" name="nombre" placeholder="Nombre del proveedor" />                       
                     </td>
                 </tr>
 
@@ -99,10 +131,14 @@
                         <input type="submit" value="Enviar" class="default" />
                     </td>
                 </tr>
-            </table>
-            <?php
-              include "../footer.html";
-             ?>
-        </form>
+            </table>-->            
+            </form>
+        </div>
+        <?php
+            include "../footer.html";
+        ?>
     </body>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="../js/bootstrap.min.js"></script>
 </html>
