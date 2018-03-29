@@ -5,12 +5,117 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../css/estilos.css">
         <link rel="stylesheet" type="text/css" href="../css/estiloMenu.css" />
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
     </head>
     <body>
         <?php
             include "../nav.php";
         ?>
-        <form name="form1" action="aniadirMateriales.php" method="post">
+        <div class="container">
+            <form name="form1" action="aniadirMateriales.php" method="post">
+                <caption><strong><h1 class="text-center text-primary">Formulario de compra de materiales</h1></strong></caption>                
+                <div class="form-group text-right">
+                    <label for="" class="col-md-2 text-right">IdCompra:</label>
+                    <input type="text" class="col-md-3 text-right" name="id" placeholder="El Id se obtiene automáticamente" readonly>                    
+                </div>
+                <div class="form-group text-right">
+                    <label for="" class="col-md-2 text-right">Folio:</label>
+                    <input type="text" class="col-md-2 text-right" name="id" placeholder="Ingrese el folio:">
+                </div>
+                <div class="form-group text-right">
+                    <label for="" class="col-md-2 text-right">Fecha:</label>
+                    <input type="date" class="col-md-2 text-right" name="fecha">
+                </div>
+                <div class="form-group">
+                    <label for="">Proveedor:</label>
+                    <select name="proveedores" id="proveedores" class="form-control col-md-3 text-right">
+                        <option value="ninguno">Seleccione un proveedor</option>
+                            <?php
+                                include "../conexion.php";
+
+                                $sql = "SELECT Nombre FROM proveedores";
+                                $result = mysqli_query($conexion, $sql);
+
+                                while($row = $result->fetch_assoc())
+                                {
+                                    echo "<option value'".$row['Nombre']."'>".$row['Nombre']."</option>";
+                                }
+
+                                mysqli_close($conexion);
+                            ?>
+                    </select>
+                </div>
+                <div class="form-group row">
+                    <label for="">IdProveedor:</label>
+                    <input type="text" name="idProveedor" id="idProveedor" class="form-control col-md-1" readonly>
+                    <label for="">Domicilio:</label>
+                    <input type="text" name="domicilio" id="domicilio" class="form-control col-md-3" readonly>
+                    <label for="">Teléfono:</label>
+                    <input type="text" name="telefono" id="telefono" class="form-control col-md-2" readonly>
+                </div>
+
+                <hr>
+
+                <div class="container">
+                    <div class="form-group">
+                        <label for="">Materiales:</label>
+                        <select name="materiales" id="materiales" class="form-control col-md-3 text-right">
+                            <option value="Ninguno">Seleccione un material</option>
+                            <?php
+                                include "../conexion.php";
+                                $sql = "SELECT Nombre FROM materiales";
+                                $result = mysqli_query($conexion, $sql);
+
+                                while($row = $result->fetch_assoc())
+                                {
+                                    echo "<option value'".$row['Nombre']."'>".$row['Nombre']."</option>";
+                                }
+                                mysqli_close($conexion);
+                            ?>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label>Cantidad:</label>
+                        <input type="text" name="cantidad" id="cantidad" class="form-control col-md-1" readonly>
+                        <label for="">Precio</label>
+                        <input type="text" name="precio" id="precio" class="form-control col-md-2" readonly>                                  
+                        <button class="btn btn-primary">Agregar al carrito</button>
+                    </div>
+
+                    <hr>
+
+                    <div class="container">
+                        <table class="table table-bordered table-hover table-condensed" id="tablaMateriales" name="tablaMateriales">
+                            <tr class="table-primary">
+                                <th class="text-center">Material:</th>
+                                <th class="text-center">Cantidad:</th>
+                                <th class="text-center">Precio:</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <hr>
+                    <br>
+                                
+                    <div class="container">
+                        <div class="form-group row">
+                            <label for="">Subtotal:</label>
+                            <input type="text" name="subtotal" id="subtotal" class="form-control col-md-1" readonly>
+                            <label for="">IVA:</label>
+                            <input type="text" name="iva" id="iva" class="form-control col-md-1" readonly>
+                            <label for="">Total:</label>
+                            <input type="text" name="total" id="total" class="form-control col-md-1" readonly>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <div class="form-group text-center">
+                            <input type="button" name="registrarCompra" id="registrarCompra" value="Registrar compra" class="btn btn-primary">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!--<form name="form1" action="aniadirMateriales.php" method="post" class="form-group">
             <input type="hidden" name="oculto" value="valorOculto" />
             <table width="100%" id="one-column-emphasis" style="text-align:center">
                 <caption>
@@ -47,8 +152,8 @@
                     <td>
                         <select name="materiales" id="materiales">
                             <option value="ninguno">Seleccione un material</option>
-                            <?php
-                                include "../conexion.php";
+                            
+                                /*include "../conexion.php";
 
                                 $sql = "SELECT IdMaterial FROM materiales";
                                 $result = mysqli_query($conexion, $sql);
@@ -58,8 +163,8 @@
                                     echo "<option value'".$row['IdMaterial']."'>".$row['IdMaterial']."</option>";
                                 }
 
-                                mysqli_close($conexion);
-                            ?>
+                                mysqli_close($conexion);*/
+                            
                         </select>
                     </td>
                 </tr>
@@ -85,7 +190,7 @@
                         Materiales de la compra:
                     </td>
                     <td>
-                        <!--<p id="tabla"></p>-->
+                        
                         <table border="1" id="tablaMateriales" name="tablaMateriales">
                             <tr>
                                 <th>Id Material</th>
@@ -128,7 +233,7 @@
                     </td>
                 </tr>
             </table>
-        </form>
+        </form>-->
         <?php
           include "../footer.html";
         ?>
@@ -187,5 +292,7 @@
         }
 
     </script>
-
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="../js/bootstrap.min.js"></script>
 </html>
