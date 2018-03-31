@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group text-right">
                     <label for="" class="col-md-2 text-right">Folio:</label>
-                    <input type="text" class="col-md-2 text-right" name="id" placeholder="Ingrese el folio:">
+                    <input type="text" class="col-md-2 text-right" name="factura" placeholder="Ingrese el folio:">
                 </div>
                 <div class="form-group text-right">
                     <label for="" class="col-md-2 text-right">Fecha:</label>
@@ -122,7 +122,7 @@
 
                     <div class="container">
                         <div class="form-group text-center">
-                            <input type="button" name="registrarCompra" id="registrarCompra" value="Registrar compra" class="btn btn-primary">
+                            <input type="submit" name="registrarCompra" id="registrarCompra" value="Registrar compra" class="btn btn-primary">
                         </div>
                     </div>
                 </div>
@@ -151,6 +151,23 @@
 
                 return false;
             });
-        });
+      });
+        $(document).ready(function()
+        {
+                $('#form1').submit(function()
+                 {
+                    $.ajax({
+                        url: 'aniadirMateriales.php',
+                        type: 'POST',
+                        dataType: 'html',
+                        data: $(this).serialize(),
+                        success: function(newContent)
+                        {
+                          alert("Se registró la compra correctamente");
+                        }
+                    });
+                    return false;
+                });
+            });
     </script>
 </html>
