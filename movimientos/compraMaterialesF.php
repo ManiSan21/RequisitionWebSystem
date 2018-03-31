@@ -6,17 +6,25 @@
         <link rel="stylesheet" type="text/css" href="../css/estilos.css">
         <link rel="stylesheet" type="text/css" href="../css/estiloMenu.css" />
         <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
     </head>
     <body style="background-color: #DEF5F5;">
         <?php
             include "../nav.php";
+            $detalle = array();
+            $_SESSION['compra'] = $detalle;
+            $_SESSION['contador'] = 0;
+            $_SESSION['subtotal'] = 0;
+            $_SESSION['iva'] = 0;
+            $_SESSION['total'] = 0;
+
         ?>
         <div class="container">
-            <form name="form1" action="aniadirMateriales.php" method="post">
-                <caption><strong><h1 class="text-center text-primary">Formulario de compra de materiales</h1></strong></caption>                
+            <form name="form1" id="form1" action="" method="post">
+                <caption><strong><h1 class="text-center text-primary">Formulario de compra de materiales</h1></strong></caption>
                 <div class="form-group text-right">
                     <label for="" class="col-md-2 text-right">IdCompra:</label>
-                    <input type="text" class="col-md-3 text-right" name="id" placeholder="El Id se obtiene automáticamente" readonly>                    
+                    <input type="text" class="col-md-3 text-right" name="id" placeholder="El Id se obtiene automáticamente" readonly>
                 </div>
                 <div class="form-group text-right">
                     <label for="" class="col-md-2 text-right">Folio:</label>
@@ -76,15 +84,15 @@
                     </div>
                     <div class="form-group row">
                         <label>Cantidad:</label>
-                        <input type="text" name="cantidad" id="cantidad" class="form-control col-md-1" readonly>
+                        <input type="text" name="cantidad" id="cantidad" class="form-control col-md-1">
                         <label for="">Precio</label>
-                        <input type="text" name="precio" id="precio" class="form-control col-md-2" readonly>                                  
-                        <button class="btn btn-primary">Agregar al carrito</button>
+                        <input type="text" name="precio" id="precio" class="form-control col-md-2">
+                        <button class="btn btn-primary" type="button" name="agregar" id="agregar">Agregar al carrito</button>
                     </div>
 
                     <hr>
 
-                    <div class="container">
+                    <div class="container" >
                         <table class="table table-bordered table-hover table-condensed" id="tablaMateriales" name="tablaMateriales">
                             <tr class="table-primary">
                                 <th class="text-center">IdMaterial</th>
@@ -93,11 +101,14 @@
                                 <th class="text-center">Precio:</th>
                                 <th class="text-center">Importe:</th>
                             </tr>
+                            <div id="detalles">
+
+                            </div>
                         </table>
                     </div>
                     <hr>
                     <br>
-                                
+
                     <div class="container">
                         <div class="form-group row">
                             <label for="">Subtotal:</label>
@@ -154,7 +165,7 @@
                     <td>
                         <select name="materiales" id="materiales">
                             <option value="ninguno">Seleccione un material</option>
-                            
+
                                 /*include "../conexion.php";
 
                                 $sql = "SELECT IdMaterial FROM materiales";
@@ -166,7 +177,7 @@
                                 }
 
                                 mysqli_close($conexion);*/
-                            
+
                         </select>
                     </td>
                 </tr>
@@ -192,7 +203,7 @@
                         Materiales de la compra:
                     </td>
                     <td>
-                        
+
                         <table border="1" id="tablaMateriales" name="tablaMateriales">
                             <tr>
                                 <th>Id Material</th>
@@ -240,7 +251,7 @@
           include "../footer.html";
         ?>
     </body>
-    <script>
+    <!--<script>
 
         function materialesCompra()
         {
@@ -293,8 +304,25 @@
 
         }
 
+    </script>-->
+    <script>
+    $(document).ready(function()
+    {
+            $('#agregar').click(function()
+             {
+                $.ajax({
+                    url: 'agregarDetalle.php',
+                    type: 'POST',
+                    dataType: 'html',
+                    data: $('#form1').serialize(),
+                    success: function(newContent)
+                    {
+                        $('#tablaMateriales').append(newContent);
+                    }
+                });
+
+                return false;
+            });
+        });
     </script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="../js/bootstrap.min.js"></script>
 </html>
