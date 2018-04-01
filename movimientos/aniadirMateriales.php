@@ -7,14 +7,17 @@
     $cantidad;
     $costo;
 
+        $idProveedor = $_POST['idProveedor'];
         $factura = $_POST['factura'];
         $fecha = $_POST['fecha'];
-        $subtotal = $_SESSION['subtotal'];
-        $iva = $_SESSION['iva'];
-        $total = $_SESSION['total'];
+        $subtotal = $_POST['subtotal'];
+        $iva = $_POST['iva'];
+        $total = $_POST['total'];
+        $importe = $_SESSION['importe'];
 
 
-        $sql = "INSERT INTO compramateriales (Factura, Fecha, Subtotal, IVA, Total) VALUES('$factura','$fecha','$subtotal','$iva','$total')";
+        $sql = "INSERT INTO compramateriales (IdProveedor, Factura, Fecha, Subtototal, IVA, Total) VALUES('$idProveedor','$factura','$fecha','$subtotal','$iva','$total')";
+
 
         if(mysqli_query($conexion, $sql))
         {
@@ -24,7 +27,7 @@
         {
           echo '<script language="javascript">alert("Compra de material no se regitró")</script>';
         }
-        $sql = "SELECT idCompra FROM compramateriales";
+        $sql = "SELECT IdCompra FROM compramateriales";
         $result = mysqli_query($conexion, $sql);
         while ($row = mysqli_fetch_row($result))
         {
@@ -38,10 +41,14 @@
           $cantidad2 = $_SESSION['compra'][$x][2];
           $precio = $_SESSION['compra'][$x][3];
 
-          $sqlDetalle = "INSERT INTO detallecompra (idCompra, idMaterial, cantidad, costo) VALUES('$idCompra','$idMaterial','$cantidad2','$precio')";
+          $sqlDetalle = "INSERT INTO detallecompras (IdCompra, IdMaterial, Cantidad, Costo, Importe) VALUES('$idCompra','$idMaterial','$cantidad2','$precio','$importe')";
           if(mysqli_query($conexion, $sqlDetalle))
           {
               echo '<script language="javascript">alert("Compra de material registrado exitosamente")</script>';
+          }
+          else
+          {
+              echo '<script language="javascript">alert("Compra de material no se regitró")</script>';
           }
         }
 ?>

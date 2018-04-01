@@ -4,11 +4,13 @@
   $_SESSION['compra'][$_SESSION['contador']][1] = $_POST['materiales'];
   $_SESSION['compra'][$_SESSION['contador']][2] = $_POST['cantidad'];
   $_SESSION['compra'][$_SESSION['contador']][3] = $_POST['precio'];
+ // $_SESSION['compra'][$_SESSION['contador']][4] = $_POST['importe'];
 
 
   $sql = "SELECT IdMaterial FROM materiales WHERE Nombre='".$_POST['materiales']."'";
   $nombre = "Hola";
   $importe = $_POST['cantidad']*$_POST['precio'];
+  $_SESSION['importe'] = $importe;
   $_SESSION['subtotal'] = $_SESSION['subtotal'] + $importe;
   $_SESSION['iva'] = $_SESSION['iva'] + $importe*0.16;
 

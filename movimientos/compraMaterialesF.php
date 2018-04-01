@@ -38,6 +38,7 @@
             $_SESSION['subtotal'] = 0;
             $_SESSION['iva'] = 0;
             $_SESSION['total'] = 0;
+            $_SESSION['importe'] = 0;
         ?>
         <div class="container">
             <form name="form1" id="form1" action="" method="post">
@@ -177,7 +178,7 @@
                     data: $(this).serialize(),
                     success: function(newContent)
                     {
-                        alert("Se registró la compra correctamente");
+                        alert(newContent);
                     }
                 });
                 return false;
