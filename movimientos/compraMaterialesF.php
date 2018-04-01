@@ -102,7 +102,7 @@
                         <input type="text" name="cantidad" id="cantidad" class="form-control col-md-1">
                         <label for="">Precio</label>
                         <input type="text" name="precio" id="precio" class="form-control col-md-2">
-                        <button class="btn btn-primary" type="button" name="agregar" id="agregar">Agregar al carrito</button>
+                        <button class="btn btn-primary" type="button" name="agregar" id="agregar" onclick="valores()">Agregar al carrito</button>
                     </div>
 
                     <hr>
@@ -127,11 +127,11 @@
                     <div class="container">
                         <div class="form-group row">
                             <label for="">Subtotal:</label>
-                            <input type="text" name="subtotal" id="subtotal" class="form-control col-md-1" readonly>
+                            <input type="text" name="subtotal" id="subtotal" class="form-control col-md-1" value="0" readonly>
                             <label for="">IVA:</label>
-                            <input type="text" name="iva" id="iva" class="form-control col-md-1" readonly>
+                            <input type="text" name="iva" id="iva" class="form-control col-md-1" value="0" readonly>
                             <label for="">Total:</label>
-                            <input type="text" name="total" id="total" class="form-control col-md-1" readonly>
+                            <input type="text" name="total" id="total" class="form-control col-md-1" value="0" readonly>
                         </div>
                     </div>
 
@@ -183,5 +183,21 @@
                 return false;
             });
         });
+
+        function valores(){
+            var cantidad = parseFloat(document.getElementById("cantidad").value);
+            var precio = parseFloat(document.getElementById("precio").value);
+            var subtotal = parseFloat(document.getElementById("subtotal").value);
+            var iva = parseFloat(document.getElementById("iva").value);
+            var total = parseFloat(document.getElementById("total").value);
+
+            var subtotalFin = parseFloat(cantidad * precio);
+            var ivaFin = parseFloat(subtotalFin * 0.16);
+            var totalFin = parseFloat(subtotalFin + ivaFin);
+
+            document.getElementById("subtotal").value = parseFloat(subtotal + subtotalFin);
+            document.getElementById("iva").value = parseFloat(iva + ivaFin);
+            document.getElementById("total").value = parseFloat(total + totalFin);
+        }
     </script>
 </html>
