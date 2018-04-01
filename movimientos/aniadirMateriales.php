@@ -24,7 +24,7 @@
         {
           echo '<script language="javascript">alert("Compra de material no se regitró")</script>';
         }
-        $sql = "SELECT COUNT(*) FROM compramateriales";
+        $sql = "SELECT idCompra FROM compramateriales";
         $result = mysqli_query($conexion, $sql);
         while ($row = mysqli_fetch_row($result))
         {
