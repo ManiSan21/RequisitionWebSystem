@@ -7,6 +7,27 @@
         <link rel="stylesheet" type="text/css" href="../css/estiloMenu.css" />
         <link rel="stylesheet" href="../css/bootstrap.min.css">
         <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+        <script>
+            function cargarDatos(str){
+                if(str == ""){
+                    document.getElementById("datos").innerHTML = "";                    
+                    return;
+                } else{
+                    if(window.XMLHttpRequest){
+                        xmlhttp = new XMLHttpRequest();
+                    } else{
+                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    xmlhttp.onreadystatechange = function(){
+                        if(this.readyState == 4 && this.status == 200){
+                            document.getElementById("datos").innerHTML = this.responseText;                            
+                        }
+                    };
+                    xmlhttp.open("GET","datosProveedor.php?q="+str,true);
+                    xmlhttp.send();
+                }
+            }            
+        </script>
     </head>
     <body style="background-color: #DEF5F5;">
         <?php
@@ -17,7 +38,6 @@
             $_SESSION['subtotal'] = 0;
             $_SESSION['iva'] = 0;
             $_SESSION['total'] = 0;
-
         ?>
         <div class="container">
             <form name="form1" id="form1" action="" method="post">
@@ -36,7 +56,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Proveedor:</label>
-                    <select name="proveedores" id="proveedores" class="form-control col-md-3 text-right">
+                    <select name="proveedores" id="proveedores" class="form-control col-md-3 text-right" onchange="cargarDatos(this.value)">
                         <option value="ninguno">Seleccione un proveedor</option>
                             <?php
                                 include "../conexion.php";
@@ -53,13 +73,8 @@
                             ?>
                     </select>
                 </div>
-                <div class="form-group row">
-                    <label for="">IdProveedor:</label>
-                    <input type="text" name="idProveedor" id="idProveedor" class="form-control col-md-1" readonly>
-                    <label for="">Domicilio:</label>
-                    <input type="text" name="domicilio" id="domicilio" class="form-control col-md-3" readonly>
-                    <label for="">Teléfono:</label>
-                    <input type="text" name="telefono" id="telefono" class="form-control col-md-2" readonly>
+                <div class="form-group row" id="datos">
+                    <b>Aquí se mostrarán los datos del proveedor...</b>                    
                 </div>
 
                 <hr>
@@ -134,10 +149,10 @@
     </body>
 
     <script>
-    $(document).ready(function()
-    {
+        $(document).ready(function()
+        {
             $('#agregar').click(function()
-             {
+            {
                 $.ajax({
                     url: 'agregarDetalle.php',
                     type: 'POST',
@@ -148,26 +163,25 @@
                         $('#tablaMateriales').append(newContent);
                     }
                 });
-
                 return false;
             });
-      });
+        });
         $(document).ready(function()
         {
-                $('#form1').submit(function()
-                 {
-                    $.ajax({
-                        url: 'aniadirMateriales.php',
-                        type: 'POST',
-                        dataType: 'html',
-                        data: $(this).serialize(),
-                        success: function(newContent)
-                        {
-                          alert("Se registró la compra correctamente");
-                        }
-                    });
-                    return false;
+            $('#form1').submit(function()
+            {
+                $.ajax({
+                    url: 'aniadirMateriales.php',
+                    type: 'POST',
+                    dataType: 'html',
+                    data: $(this).serialize(),
+                    success: function(newContent)
+                    {
+                        alert("Se registró la compra correctamente");
+                    }
                 });
+                return false;
             });
+        });
     </script>
 </html>
