@@ -178,7 +178,7 @@
                     data: $(this).serialize(),
                     success: function(newContent)
                     {
-                        alert(newContent);
+                        alert("La compra se registró exitosamente");
                     }
                 });
                 return false;

@@ -55,10 +55,6 @@
     {
         echo '<script language="javascript">alert("Nombre de usuario incorrecto o contraseña incorrecta")</script>';
     }
-    /*else
-    {
-
-    }*/
 
     mysqli_close($conexionSql);
 ?>
