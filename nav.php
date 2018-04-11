@@ -3,7 +3,7 @@
     
     $usuario = $_SESSION['usuario'];
     $contra = $_SESSION['contra'];
-    $idUsuario = $_SESSION['idUsuario'];
+    //$idUsuario = $_SESSION['idUsuario'];
 ?>
 
 <!DOCTYPE html>

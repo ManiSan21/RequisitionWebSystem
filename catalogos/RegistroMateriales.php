@@ -1,6 +1,6 @@
 <?php
     $db = 'rws';
-    $host = 'localhost';
+    $host = 'localhost:3308';
     $user = 'root';
     $pass = '';
 
@@ -13,7 +13,7 @@
 
     if(isset($_POST['Enviar']))
     {
-        $idProveedor = $_POST['proveedores'];
+        //$idProveedor = $_POST['proveedores'];
     }
 
     $conexionSql = mysqli_connect($host, $user, $pass, $db);
@@ -23,7 +23,7 @@
         die("Error de conexión: ". mysqli_connect_error());
     }
 
-    $sql = "INSERT INTO materiales (IdProveedor, Nombre, Maximo, Minimo, Existencias, Precio) VALUES('$idProveedor', '$nombre', '$maximo', '$minimo', '$existencias', '$precio')";
+    $sql = "INSERT INTO materiales (Nombre, Maximo, Minimo, Existencias, Precio) VALUES('$nombre', '$maximo', '$minimo', '$existencias', '$precio')";
 
     if(mysqli_query($conexionSql, $sql))
     {

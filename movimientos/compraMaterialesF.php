@@ -161,7 +161,7 @@
                     data: $('#form1').serialize(),
                     success: function(newContent)
                     {
-                        $('#tablaMateriales').append(newContent);
+                        $('#tablaMateriales').html(newContent);
                     }
                 });
                 return false;
