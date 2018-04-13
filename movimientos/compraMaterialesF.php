@@ -126,13 +126,17 @@
                     <br>
 
                     <div class="container">
-                        <div class="form-group row">
-                            <label for="">Subtotal:</label>
-                            <input type="text" name="subtotal" id="subtotal" class="form-control col-md-1" value="0" readonly>
+                        <div class="form-group text-right">
+                            <label for="" class="col-form-label text-right">Subtotal:</label>
+                            <input type="text" name="subtotal" id="subtotal" class="col-md-1" value="0" readonly>                            
+                        </div>
+                        <div class="form-group text-right">
                             <label for="">IVA:</label>
-                            <input type="text" name="iva" id="iva" class="form-control col-md-1" value="0" readonly>
+                            <input type="text" name="iva" id="iva" class="col-md-1" value="0" readonly>
+                        </div>
+                        <div class="form-group text-right">
                             <label for="">Total:</label>
-                            <input type="text" name="total" id="total" class="form-control col-md-1" value="0" readonly>
+                            <input type="text" name="total" id="total" class="col-md-1" value="0" readonly>
                         </div>
                     </div>
 

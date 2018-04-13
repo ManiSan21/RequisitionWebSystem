@@ -22,7 +22,7 @@
                 <label for="" class="col-md-2 text-right">IdCompra:</label>
                 <input type="text" class="form-control col-md-3" name="idCompra" id="idCompra" placeholder="Ingrese el Id de compra:">
                 <br>
-                <input type="submit" name="consultarCompra" id="consultarCompra" value="Consultar Compra compra" class="btn btn-primary">
+                <input type="submit" name="consultarCompra" id="consultarCompra" value="Consultar Compra" class="btn btn-primary">
             </div>            
         </form>
     </div>
@@ -41,8 +41,12 @@
             <tr>
                 <?php
                     include "../conexion.php";
-                    $idCompra = $_POST['idCompra'];
-                    $_SESSION['idCompra'] = $idCompra;
+                    $idCompra = 0;
+                    if(!empty($_POST['idCompra']))
+                    {
+                        $idCompra = $_POST['idCompra'];
+                        $_SESSION['idCompra'] = $idCompra;
+                    }                                        
                     $idProveedor;
                     $nombre;
 
@@ -63,7 +67,7 @@
                         echo "<td class='text-center'>".$row['Factura']."</td>";
                         echo "<td class='text-center'>".$nombre."</td>";
                         echo "<td class='text-center'>".$row['Fecha']."</td>";
-                        echo "<td class='text-center'>".$row['Subtototal']."</td>";
+                        echo "<td class='text-center'>".$row['Subtotal']."</td>";
                         echo "<td class='text-center'>".$row['IVA']."</td>";
                         echo "<td class='text-center'>".$row['Total']."</td>";
                         echo "</tr>";
