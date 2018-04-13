@@ -32,10 +32,10 @@
     $_SESSION['subtotal'] = $_SESSION['subtotal'] + $importe;
     $_SESSION['iva'] = $_SESSION['iva'] + $importe*0.16;
 
-    $total = $importe + $importe*0.16; 
-    $_SESSION['total'] = $total;  
+    $total = $importe + $importe*0.16;
+    $_SESSION['total'] = $total;
 
-    $_SESSION['compra'][$a][4] = $importe; 
+    $_SESSION['compra'][$a][4] = $importe;
 
     echo "<tr class=active>
         <td>
@@ -64,14 +64,14 @@
 
 
     $sql = "SELECT IdMaterial FROM materiales WHERE Nombre='".$_POST['materiales']."'";
-    $nombre = "Hola";
+    $nombre = 0;
     $importe = $_POST['cantidad']*$_POST['precio'];
     $_SESSION['importe'] = $importe;
     $_SESSION['subtotal'] = $_SESSION['subtotal'] + $importe;
     $_SESSION['iva'] = $_SESSION['iva'] + $importe*0.16;
 
     $total = $importe + $importe*0.16;
-    $_SESSION['total'] = $total;  
+    $_SESSION['total'] = $total;
 
     $_SESSION['compra'][$_SESSION['contador']][4] = $importe;
     $result = mysqli_query($conexion, $sql);
@@ -101,6 +101,6 @@
 
     $_SESSION['contador'] = $_SESSION['contador'] + 1;
   }
-  
+
   echo "</table>";
  ?>
