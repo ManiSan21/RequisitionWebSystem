@@ -27,7 +27,7 @@
       $cant = $_SESSION['compra'][$a][2];
       $ban = false;
     }
-    $importe = $_SESSION['compra'][$a][2]*$_POST['precio'];
+    $importe = $_SESSION['compra'][$a][2]*$_SESSION['compra'][$a][3];
     $_SESSION['importe'] = $importe;
     $_SESSION['subtotal'] = $_SESSION['subtotal'] + $importe;
     $_SESSION['iva'] = $_SESSION['iva'] + $importe*0.16;
