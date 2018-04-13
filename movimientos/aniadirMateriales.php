@@ -44,7 +44,7 @@
           $sqlDetalle = "INSERT INTO detallecompras (IdCompra, IdMaterial, Cantidad, Costo, Importe) VALUES('$idCompra','$idMaterial','$cantidad2','$precio', '$importe')";
           if(mysqli_query($conexion, $sqlDetalle))
           {
-              $sqlUpdate = "UPDATE materiales SET Existencias = Existencias +$cantidad2 WHERE IdMaterial = $idMaterial";
+              $sqlUpdate = "UPDATE materiales SET Existencias = Existencias +$cantidad2, Precio = $precio WHERE IdMaterial = $idMaterial";
               mysqli_query($conexion, $sqlUpdate);
               echo '<script language="javascript">alert("Compra de material registrado exitosamente")</script>';
           }
