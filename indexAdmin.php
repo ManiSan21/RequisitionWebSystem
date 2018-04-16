@@ -24,6 +24,7 @@
           <li><a title="registrarServicios" href="catalogos/RegistroServiciosF.php">Registrar servicios</a></li>
           <li><a title="compraMateriales" href="movimientos/compraMaterialesF.php">Registrar Compras de materiales</a></li>
           <li><a title="solicitudesServicio" href="movimientos/RegistroSolicitudesForm.php">Registrar solicitud de servicio</a></li>
+          <li><a title="solucionSolicitudes" href="movimientos/SolucionSolicitudesForm.php">Registrar solución de solicitudes</a></li>
           <li>Usuario en sesion: <?php echo $usuario; ?></li>
           <li><a title="cerrarSesion" name="cerrarSession" href="cerrarSesion.php">Cerrar Sesión</a></li>          
       </ul>

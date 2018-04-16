@@ -44,9 +44,9 @@
                     $idCompra = 0;
                     if(!empty($_POST['idCompra']))
                     {
-                        $idCompra = $_POST['idCompra'];
-                        $_SESSION['idCompra'] = $idCompra;
-                    }                                        
+                        $idCompra = $_POST['idCompra'];                        
+                    }                     
+                    $_SESSION['idCompra'] = $idCompra;                   
                     $idProveedor;
                     $nombre;
 
