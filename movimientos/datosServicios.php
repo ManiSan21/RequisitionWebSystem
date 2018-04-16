@@ -32,26 +32,17 @@
 
             while($rowDetServicio = $resultDetServicio->fetch_array())
             {
-                $idMaterial[$contIdMaterial] = $rowDetServicio['IdMaterial'];                
+                $idMaterial[] = $rowDetServicio['IdMaterial'];                
             
                 $sqlMaterial = "SELECT Nombre FROM materiales WHERE IdMaterial = '$idMaterial[$contIdMaterial]'";
                 $resultMaterial = mysqli_query($conexion, $sqlMaterial);
                 $contNomMat = 0;
                 while($rowMaterial = $resultMaterial->fetch_array())
                 {
-                    $nombreMaterial[$contNomMat] = $rowMaterial['Nombre'];
-                    $contNomMat++;
+                    $nombreMaterial[] = $rowMaterial['Nombre'];                   
                 }
                 $contIdMaterial++;
             }
-            /*$sqlMaterial = "SELECT Nombre FROM materiales WHERE IdMaterial = '$idMaterial'";
-            $resultMaterial = mysqli_query($conexion, $sqlMaterial);
-            $contNomMat = 0;
-            while($rowMaterial = $resultMaterial->fetch_array())
-            {
-                $nombreMaterial[$contNomMat] = $rowMaterial['Nombre'];
-                $contNomMat++;
-            }*/
 
             echo "<label for=''>IdServicio:</label>";
             echo "<input type='text' name='idServicio' id='idServicio' class='form-control col-md-2' value='$idServicio' readonly >";
@@ -62,15 +53,13 @@
             $cont = 0;
             $cantMaterial = "cantidad";
             $contMaterial = 0;
-            $contNumMateriales = sizeof($nombreMaterial);
-            print_r($contNumMateriales);
-            //echo "<script>alert('$contNumMateriales')</script>";
-            for($i = 0; $i < $contNumMateriales; $i++)//$nombreMaterial as $nombre)
+            $contNumMateriales = sizeof($nombreMaterial);            
+            for($i = 0; $i < $contNumMateriales; $i++)
             {
                 $nombreTextoFin = $nombreTexto.$cont;
-                $cantMaterialFin = $cantMaterial.$contMaterial;
-                echo "<input type='text' name='$nombreTextoFin' id='$nombreTextoFin' class='form-control col-md-2' value='$nombreMaterial[$i]' readonly >";
-                echo "<input type='text' name='$cantMaterialFin' id='$cantMaterialFin' class='form-control col-md-4' placeholder='Ingrese la cantidad de material utilizada'>";
+                $cantMaterialFin = $cantMaterial.$contMaterial;                
+                echo "<label><i>$nombreMaterial[$i]:</i></label>";
+                echo "<input type='text' name='$cantMaterialFin' id='$cantMaterialFin' class='form-control col-md-3' placeholder='Ingrese la cantidad de material'>";
                 $cont++;
                 $contMaterial++;
                 echo "<br>";
