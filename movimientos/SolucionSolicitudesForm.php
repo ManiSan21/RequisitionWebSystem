@@ -11,7 +11,7 @@
     <script>
         function cargarDatosSolicitud(str){
             if(str == ""){
-                document.getElementById("datos").innerHTML = "";                    
+                document.getElementById("datos").innerHTML = "";
                 return;
             } else{
                 if(window.XMLHttpRequest){
@@ -21,7 +21,7 @@
                 }
                 xmlhttp.onreadystatechange = function(){
                     if(this.readyState == 4 && this.status == 200){
-                        document.getElementById("datos").innerHTML = this.responseText;                            
+                        document.getElementById("datos").innerHTML = this.responseText;
                     }
                 };
                 xmlhttp.open("GET","datosSolicitud.php?q="+str,true);
@@ -31,7 +31,7 @@
 
         function cargarDatosServicio(str){
             if(str == ""){
-                document.getElementById("datosServicio").innerHTML = "";                    
+                document.getElementById("datosServicio").innerHTML = "";
                 return;
             } else{
                 if(window.XMLHttpRequest){
@@ -41,7 +41,7 @@
                 }
                 xmlhttp.onreadystatechange = function(){
                     if(this.readyState == 4 && this.status == 200){
-                        document.getElementById("datosServicio").innerHTML = this.responseText;                            
+                        document.getElementById("datosServicio").innerHTML = this.responseText;
                     }
                 };
                 xmlhttp.open("GET","datosServicios.php?q="+str,true);
@@ -61,7 +61,7 @@
 
             <div class="form-group text-right">
                 <label for="" class="col-md-2 text-right">IdSolución:</label>
-                <input type="text" name="idSolucion" id="idSolucion" class="col-md-3 text-right" placeholder="El ID se obtiene automaticamente">                
+                <input type="text" name="idSolucion" id="idSolucion" class="col-md-3 text-right" placeholder="El ID se obtiene automaticamente">
             </div>
             <div class="form-group text-right">
                 <label for="" class="col-md-2 text-right">Fecha:</label>
@@ -74,7 +74,7 @@
                     <option value="ninguno">Seleccione una solicitud</option>
                     <?php
                         include "../conexion.php";
-
+                        
                         $estado = "PENDIENTE";
 
                         $sql = "SELECT IdSolicitud FROM solicitudesservicios WHERE Estado = '$estado'";
@@ -82,7 +82,7 @@
 
                         while($row = $result->fetch_assoc())
                         {
-                            echo "<option value'".$row['IdSolicitud']."'>".$row['IdSolicitud']."</option>";                            
+                            echo "<option value'".$row['IdSolicitud']."'>".$row['IdSolicitud']."</option>";
                         }
 
                         mysqli_close($conexion);
@@ -90,7 +90,7 @@
                 </select>
             </div>
             <div class="form-group row" id="datos">
-                <b>Aquí se mostrarán los datos de la solicitud...</b>                    
+                <b>Aquí se mostrarán los datos de la solicitud...</b>
             </div>
 
             <div class="container">
@@ -117,21 +117,20 @@
 
                         while($row = $result->fetch_assoc())
                         {
-                            echo "<option value'".$row['Descripcion']."'>".$row['Descripcion']."</option>";                            
+                            echo "<option value'".$row['Descripcion']."'>".$row['Descripcion']."</option>";
                         }
-                        
+
                         mysqli_close($conexion);
                     ?>
                 </select>
             </div>
             <div class="form-group row" id="datosServicio">
-                <b>Aquí se mostrarán los datos del servicio...</b>                    
+                <b>Aquí se mostrarán los datos del servicio...</b>
             </div>
             <hr>
-
             <div class="form-group">
                 <label for="" class="col-md-2">Descripción:</label>
-                <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Ingrese una descripción de la solución de solicitud">                
+                <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Ingrese una descripción de la solución de solicitud">
             </div>
             <hr>
 
