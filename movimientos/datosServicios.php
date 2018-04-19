@@ -47,7 +47,7 @@
             echo "<label for=''>IdServicio:</label>";
             echo "<input type='text' name='idServicio' id='idServicio' class='form-control col-md-2' value='$idServicio' readonly >";
             echo "<br/>";
-            echo "<label for='' class='col-md-1'>Materiales:</label>";
+            echo "<label for='' class=''>Materiales:</label>";
             echo "<br>";
             $nombreTexto = "material";
             $cont = 0;

@@ -93,6 +93,16 @@
                 <b>Aquí se mostrarán los datos de la solicitud...</b>                    
             </div>
 
+            <div class="container">
+                <table class="table table-bordered table-hover table-condensed" id="tablaDetalle" name="tablaDetalle">
+                    <tr class="table-primary">
+                        <th class="text-center">IdSolución</th>
+                        <th class="text-center">IdMaterial</th>
+                        <th class="text-center">Cantidad</th>
+                    </tr>
+                </table>
+            </div>
+
             <hr>
 
             <div class="form-group">
