@@ -47,7 +47,22 @@
             <input type="text" name="fecha" id="fecha" class="form-control col-md-2" readonly>
         </div>
     </div>
+    <hr>
 
+    <div class="container">
+        <table class="table table-bordered table-hover table-condensed" id="tablaDetalle" name="tablaDetalle">
+            <tr class="table-primary">                
+                <th class="text-center">IdMaterial</th>
+                <th class="text-center">Cantidad</th>
+            </tr>
+        </table>        
+    </div>
+    <hr>
+    <div class="container">
+        <div class="form-group text-center">
+            <input type="reset" value="Limpiar Formulario" id="limpiarFormulario" name="limpiarFormulario" class="btn btn-danger text-center">
+        </div>
+    </div>
     <?php
         include "../footer.html";
     ?>
