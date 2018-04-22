@@ -97,6 +97,29 @@
             <div class="form-group row" id="datos">
                 <b>Aquí se mostrarán los datos de la solicitud...</b>
             </div>
+            <hr>
+
+            <div class="form-group">
+                <label for="" class="col-md-2">Servicio:</label>
+                <select name="servicios" id="servicios" class="form-control col-md-4">
+                    <option value="ninguno">Seleccione un servicio</option>
+                    <?php
+                        include "../conexion.php";
+
+                        $sql = "SELECT Descripcion FROM servicios";
+                        $result = mysqli_query($conexion, $sql);
+
+                        while($row = $result->fetch_assoc())
+                        {
+                            echo "<option value'".$row['Descripcion']."'>".$row['Descripcion']."</option>";
+                        }
+
+                        mysqli_close($conexion);
+                    ?>
+                </select>
+            </div>  
+            <hr>
+
             <div class="container">
                 <div class="form-group">
                     <label for="">Materiales:</label>
@@ -128,32 +151,8 @@
                         <th class="text-center">Cantidad</th>
                     </tr>
                 </table>
-            </div>
-
-            <hr>
-
-            <div class="form-group">
-                <label for="" class="col-md-2">Servicio:</label>
-                <select name="servicios" id="servicios" class="form-control col-md-4" onchange="cargarDatosServicio(this.value)">
-                    <option value="ninguno">Seleccione un servicio</option>
-                    <?php
-                        include "../conexion.php";
-
-                        $sql = "SELECT Descripcion FROM servicios";
-                        $result = mysqli_query($conexion, $sql);
-
-                        while($row = $result->fetch_assoc())
-                        {
-                            echo "<option value'".$row['Descripcion']."'>".$row['Descripcion']."</option>";
-                        }
-
-                        mysqli_close($conexion);
-                    ?>
-                </select>
-            </div>
-            <div class="form-group row" id="datosServicio">
-                <b>Aquí se mostrarán los datos del servicio...</b>
-            </div>
+            </div>            
+                      
             <hr>
             <div class="form-group">
                 <label for="" class="col-md-2">Descripción:</label>

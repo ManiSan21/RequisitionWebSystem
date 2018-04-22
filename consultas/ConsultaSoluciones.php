@@ -29,7 +29,7 @@
 
     <hr>
 
-    <div class="container">    
+    <!--<div class="container">    
         <div class="form-group row">
             <label for="" class="col-md-1">IdSolución:</label>
             <input type="text" name="idSolucionCons" id="idSolucionCons" class="form-control col-md-2" readonly>
@@ -46,23 +46,87 @@
             <label for="" class="col-md-1">Fecha:</label>
             <input type="text" name="fecha" id="fecha" class="form-control col-md-2" readonly>
         </div>
-    </div>
-    <hr>
+    </div>-->
 
-    <div class="container">
-        <table class="table table-bordered table-hover table-condensed" id="tablaDetalle" name="tablaDetalle">
-            <tr class="table-primary">                
-                <th class="text-center">IdMaterial</th>
-                <th class="text-center">Cantidad</th>
-            </tr>
-        </table>        
-    </div>
-    <hr>
-    <div class="container">
-        <div class="form-group text-center">
-            <input type="reset" value="Limpiar Formulario" id="limpiarFormulario" name="limpiarFormulario" class="btn btn-danger text-center">
-        </div>
-    </div>
+    <?php
+        include "../conexion.php";
+        $idSolucion = 0;
+        if(!empty($_POST['idSolucion']))
+        {
+            $idSolucion = $_POST['idSolucion'];
+        }
+        $sql = "SELECT * FROM solucionsolicitud WHERE IdSolucion='$idSolucion'";            
+        $result = mysqli_query($conexion, $sql);
+
+        while($row = $result->fetch_assoc())
+        {
+            $idSolucionConsulta = $row['IdSolucion'];
+            $idSolicitud = $row['IdSolicitud'];
+            $idServicio = $row['IdServicio'];
+            $descripcion = $row['Descripcion'];
+            $fecha = $row['Fecha'];
+            $nomServicio;
+            $sqlServicio = "SELECT Descripcion FROM servicios WHERE IdServicios='$idServicio'";
+            $resultServicio = mysqli_query($conexion, $sqlServicio);
+
+            while($rowServicio = $resultServicio->fetch_assoc())
+            {
+                $nomServicio = $rowServicio['Descripcion'];
+            }
+
+
+            echo "<div class='container'>";
+            echo "<div class='form-group row'";
+            echo "<label class='col-md-1'>IdSolución:</label>";
+            echo "<input type='text' name='idSolucionCons' id='idSolucionCons' class='form-control col-md-2' value='$idSolucionConsulta' readonly>";
+            echo "<label class='col-md-1'>IdSolicitud:</label>";
+            echo "<input type='text' name='idSolicitud' id='idSolicitud' class='form-control col-md-2' value='$idSolicitud' readonly>";
+            echo "<label class='col-md-1'>Servicio:</label>";
+            echo "<input type='text' name='servicio' id='servicio' class='form-control col-md-3' value='$nomServicio' readonly>";
+            echo "</div>";
+            echo "<div class='form-group'>";
+            echo "<label class='col-md-1'>Descripción:</label>";
+            echo "<input type='text' name='descripcion' id='descripcion' class='form-control' value='$descripcion' readonly>";
+            echo "</div>";
+            echo "<div class='form-group row'>";
+            echo "<label class='col-md-2'>Fecha:</label>";
+            echo "<input type='text' id='fecha' name='fecha' class='form-control col-md-2' value='$fecha' readonly>";
+            echo "</div>";
+            echo "</div>";
+        }
+
+        echo "<hr>";
+
+        $sql = "SELECT IdMaterial, Cantidad FROM detallesolucion WHERE IdSolucion='$idSolucion'";
+        $result = mysqli_query($conexion, $sql);
+
+        echo "<div class='container'>";
+        echo "<table class='table table-bordered table-hover table-condensed' id='tablaDetalle' name='tablaDetalle'>";
+        echo "<tr class='table-primary'>";
+        echo "<th class='text-center'>Material</th>";
+        echo "<th class='text-center'>Cantidad</th>";
+        echo "</tr>";       
+        while($row = $result->fetch_assoc())
+        {
+            $idMaterial = $row['IdMaterial'];
+            $nombreMaterial;
+            $sqlMaterial = "SELECT Nombre FROM materiales WHERE IdMaterial='$idMaterial'";
+            $resultMaterial = mysqli_query($conexion, $sqlMaterial);
+
+            while($rowMaterial = $resultMaterial->fetch_assoc())
+            {
+                $nombreMaterial = $rowMaterial['Nombre'];
+            }
+
+            echo "<tr class='active'>";
+            echo "<td class='text-center'>".$nombreMaterial."</td>";
+            echo "<td class='text-center'>".$row['Cantidad']."</td>";
+            echo "</tr>";
+        }        
+        echo "</table>";
+        echo "</div>";
+        
+    ?>        
     <?php
         include "../footer.html";
     ?>

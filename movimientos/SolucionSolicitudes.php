@@ -30,6 +30,8 @@
   {
     $idSolucion = $row[0];
   }
+  $sql = "UPDATE solicitudesservicios SET Estado = 'SOLUCIONADO' WHERE idSolicitud = $idSolicitud";
+  mysqli_query($conexion, $sql);
 
   for($x=0; $x<$_SESSION['contador']; $x++)
   {

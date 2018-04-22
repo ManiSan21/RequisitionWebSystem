@@ -22,12 +22,12 @@
 
     while($row = $result->fetch_assoc())
     {
-        $pdf->Cell(30,6,$row['IdSolicitud'], 1, 0, 'C');
-        $pdf->Cell(30,6,$row['IdUsuario'], 1, 0, 'C');
-        $pdf->Cell(20,6,$row['IdAula'], 1, 0, 'C');
-        $pdf->Cell(100,6,utf8_decode($row['Descripcion']), 1, 0, 'C');
-        $pdf->Cell(30,6,$row['Fecha'], 1, 0, 'C');
-        $pdf->Cell(70,6,$row['Estado'], 1, 1, 'C');
+        $pdf->Cell(30,6,$row['IdSolicitud'], 1, 0, 'L');
+        $pdf->Cell(30,6,$row['IdUsuario'], 1, 0, 'L');
+        $pdf->Cell(20,6,$row['IdAula'], 1, 0, 'L');
+        $pdf->Cell(100,6,utf8_decode($row['Descripcion']), 1, 0, 'L');
+        $pdf->Cell(30,6,$row['Fecha'], 1, 0, 'L');
+        $pdf->Cell(70,6,$row['Estado'], 1, 1, 'L');
     }
 
     $pdf->Output();
