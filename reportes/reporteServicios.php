@@ -1,5 +1,5 @@
 <?php
-    include "plantillaSoluciones.php";
+    include "plantillaServicios.php";
     include "../conexion.php";
 
     $sql = "SELECT * FROM servicios";
@@ -7,7 +7,7 @@
     
     $pdf = new PDF();
     $pdf->AliasNbPages();
-    $pdf->AddPage('L');
+    $pdf->AddPage();
 
     $pdf->SetFillColor(0,191,255);
     $pdf->SetFont('Arial', 'B', 15);

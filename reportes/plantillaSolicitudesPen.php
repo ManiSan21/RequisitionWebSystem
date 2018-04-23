@@ -13,14 +13,14 @@
             $this->Cell(270,10,"D&M SOFTWARE", 0, 0, 'C');
             $this->Ln(15);
             $this->SetFont('Arial', 'B', 15);
-            $this->Cell(130, 10, "Reporte general de Materiales", 0, 0, 'C');       
+            $this->Cell(100, 10, "Reporte de Solicitudes de servicios pendientes", 0, 0, 'C');       
             $this->Cell(50,10, $date, 0, 0, 'C');
-            $this->Ln(20);
+            $this->Ln(15);
             $this->SetY(15);
             $this->SetFont('Arial', 'I', 8);
             $this->Cell(0,10, utf8_decode('Página '.$this->PageNo().'/{nb}'), 0, 0,'R');
 
-            $this->Ln(50);            
-        }
+            $this->Ln(50);           
+        }    
     }
 ?>
