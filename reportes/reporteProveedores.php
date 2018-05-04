@@ -1,5 +1,5 @@
 <?php
-    include "plantillaMateriales.php";
+    include "plantillaProveedores.php";
     include "../conexion.php";
 
     $sql = "SELECT * FROM proveedores";

@@ -13,7 +13,7 @@
         ?>
         <div class="container">
             <form name="form1" action="RegistroServicios.php" method="post">
-                <caption><strong><h1 class="text-center text-primary">Formulario de registro de usuarios</h1></strong></caption> 
+                <caption><strong><h1 class="text-center text-primary">Formulario de registro de servicios</h1></strong></caption> 
                 <div class="form-group text-right">
                     <label for="">IdServicio:</label>
                     <input class="col-md-3 text-right" type="text" name="id" placeholder="El Id se obtiene automáticamente" readonly/>

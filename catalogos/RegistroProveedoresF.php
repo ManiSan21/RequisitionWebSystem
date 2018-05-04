@@ -14,7 +14,7 @@
         ?>
         <div class="container">
             <form name="form1" action="RegistroProveedores.php" method="post">
-            <caption><strong><h1 class="text-center text-primary">Formulario de registro de departamentos</h1></strong></caption>                
+            <caption><strong><h1 class="text-center text-primary">Formulario de registro de Proveedores</h1></strong></caption>                
                 <div class="form-group text-right">
                     <label for="" class="col-md-2 text-right">IdProveedor:</label>
                     <input class="col-md-3" type="text" name="id" readonly placeholder="El id se genera automáticamente."/>                    

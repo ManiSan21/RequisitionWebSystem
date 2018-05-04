@@ -25,6 +25,12 @@
           <li><a title="compraMateriales" href="movimientos/compraMaterialesF.php">Registrar Compras de materiales</a></li>
           <li><a title="solicitudesServicio" href="movimientos/RegistroSolicitudesForm.php">Registrar solicitud de servicio</a></li>
           <li><a title="solucionSolicitudes" href="movimientos/SolucionSolicitudesForm.php">Registrar solución de solicitudes</a></li>
+          <!--<li>
+            Consultas
+            <ul>
+              <li><a title="consultaCompras" href="consultas/ConsultaCompras.php">Consulta de compras</a></li>
+            </ul>
+          </li>-->
           <li>Usuario en sesion: <?php echo $usuario; ?></li>
           <li><a title="cerrarSesion" name="cerrarSession" href="cerrarSesion.php">Cerrar Sesión</a></li>          
       </ul>
