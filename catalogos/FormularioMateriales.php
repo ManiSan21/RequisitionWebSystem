@@ -32,10 +32,10 @@
                         <select name="proveedores">
                             <option value="Ninguno" name="ninguno">Ninguno</option>
                             <?php
-                                $db = 'rws';
-                                $host = 'localhost:3308';
-                                $user = 'root';
-                                $pass = '';
+                                $db = 'u941474371_rws';
+                                $host = 'mysql.hostinger.mx';
+                                $user = 'u941474371_root';
+                                $pass = 'V5xOX0iAIW5j';
                                 $conexionSql = mysqli_connect($host, $user, $pass, $db);
 
                                 if(!$conexionSql)

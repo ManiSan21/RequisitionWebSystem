@@ -7,11 +7,11 @@
         $_SESSION['contra'] = htmlentities($_POST['password']);
     }
 
-    $db = 'rws';
-    $host = 'localhost:3308';
-    $user = 'root';
-    $pass = '';
-
+    $db = 'u941474371_rws';
+    $host = 'mysql.hostinger.mx';
+    $user = 'u941474371_root';
+    $pass = 'V5xOX0iAIW5j';
+    
     $usuario = $_POST['username'];
     $password = $_POST['password'];
     $contrasenaUsuario;

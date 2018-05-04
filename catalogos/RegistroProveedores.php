@@ -1,8 +1,8 @@
 <?php
-    $db = 'rws';
-    $host = 'localhost';
-    $user = 'root';
-    $pass = '';
+    $db = 'u941474371_rws';
+    $host = 'mysql.hostinger.mx';
+    $user = 'u941474371_root';
+    $pass = 'V5xOX0iAIW5j';
 
     $nombre = $_POST['nombre'];
     $domicilio = $_POST['domicilio'];

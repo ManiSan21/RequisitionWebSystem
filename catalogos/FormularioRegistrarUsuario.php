@@ -28,24 +28,24 @@
                         <select name="idDepartamento">
                             <option value="Ninguno" name="ninguno">Ninguno</option>
                             <?php
-                                $db = 'rws';
-                                $host = 'localhost:3308';
-                                $user = 'root';
-                                $pass = '';
+                                $db = 'u941474371_rws';
+                                $host = 'mysql.hostinger.mx';
+                                $user = 'u941474371_root';
+                                $pass = 'V5xOX0iAIW5j';
 
                                 $conexionSql = mysqli_connect($host, $user, $pass, $db);
-                            
+
                                 if(!$conexionSql)
                                 {
-                                    die("Error de conexión: ". mysqli_connect_error());      
+                                    die("Error de conexión: ". mysqli_connect_error());
                                 }
 
                                 $sql = "SELECT IdDepartamento FROM departamentos;";
 
-                                $filtro = mysqli_query($conexionSql, $sql);                                
+                                $filtro = mysqli_query($conexionSql, $sql);
                                 while($row = mysqli_fetch_array($filtro))
                                 {
-                                    echo "<option value='".$row['IdDepartamento']."'>".$row['IdDepartamento']."</option>";      
+                                    echo "<option value='".$row['IdDepartamento']."'>".$row['IdDepartamento']."</option>";
                                 }
                             ?>
                         </select>
@@ -66,7 +66,7 @@
                     <td>
                         <input class="default" type="password" name="password" placeholder="Escribir Contraseña"/>
                     </td>
-                </tr>                
+                </tr>
                 <tr>
                     <td class="oce-first">
                         Tipo de usuario:
